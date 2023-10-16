@@ -19,9 +19,9 @@
             {% endfor %}
         </select>
     </div>
-    <section>
+    <section class="sectionGrid">
         {% for country in countries %}
-            <article>
+            <article class="gridItem">
                 <img src="{{ country.flags.png }}" alt="{{ country.name }} flag">
                 <h2>{{ country.name }}</h2>
                 <p>Population: <span>{{ country.population }}</span></p>
