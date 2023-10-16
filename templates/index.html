@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <form action="/search">
+            <button type="submit"><!-- icon --></button> 
+            <input id="search" name="country" type="text" autocomplete="off" placeholder="Search for a country...">
+        </form>
+
+        <select name="region" id="dropdownSelect">
+            <!-- button which activates a dropdown for more buttons with links to what is displayed -->
+            <option value=""><span>Filter by Region</span> <!-- icon --></button></option>
+            {% for region in regions %}
+                <option value="{{ region }}"><a href="/{{ region }}" class="dropdownLink">{{ region }}</a></option>
+            {% endfor %}
+        </select>
+    </div>
+    <section>
+        {% for country in countries %}
+            <article>
+                <img src="{{ country.flags.png }}" alt="{{ country.name }} flag">
+                <h2>{{ country.name }}</h2>
+                <p>Population: <span>{{ country.population }}</span></p>
+                <p>Region: <span>{{ country.region }}</span></p>
+                <p>Capital: <span>{{ country.capital }}</span></p>
+            </article>
+        {%  %}
+    </section>
+{% endblock %}
