@@ -1,0 +1,23 @@
+/* colors */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap');
+
+:root {
+    /* ## Colors */
+    --clr-d-el: hsl(209, 23%, 22%);
+    --clr-d-bg: hsl(207, 26%, 17%);
+    --clr-l-txt: hsl(200, 15%, 8%);
+    --clr-l-inp: hsl(0, 0%, 52%);
+    --clr-l-bg: hsl(0, 0%, 98%);
+    --clr-white: hsl(0, 0%, 100%);
+
+    /* ## Typography */
+    /* homepage items - 14px */
+    /* detail page - 16px */
+    /* weights: 300 600 800 */
+
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Nunito Sans', sans-serif;
+}
