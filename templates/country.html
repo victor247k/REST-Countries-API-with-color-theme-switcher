@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ country.name }}
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <a href="/"><!-- icon --> Back</a>
+    </div>
+    <section class="country">
+        <img href="{{ country.flags.png }}" ald="{{ country.name }} flag">
+        <h2>{{ country.name }}</h2>
+        <div>
+            <p>Native name: <span>{{ country.nativeName }}</span></p>
+            <p>Population: <span>{{ country.population }}</span></p>
+            <p>Region: <span>{{ country.region }}</span></p>
+            <p>Sub Region: <span>{{ country.subregion }}</span></p>
+            <p>Capital: <span>{{ country.capital }}</span></p>
+        </div>
+        <div>
+            <p>Top Level Domain: <span>{{ country.region }}</span></p>
+            <p>Currencies: <span>{{ country.subregion }}</span></p>
+            <p>
+                Langueges: 
+                {% for language in country.languages %}
+                    <span>{{ language.name }}, </span> <!-- change the comma with js -->
+                {% endfor %}
+            </p>
+        </div>
+        <div>
+            <h3>Border Countries:</h3>
+            {% for country in country.neightbors  %}
+                <span class="buttonLike">{{ country }} </span> 
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
