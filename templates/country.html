@@ -13,14 +13,18 @@
         <h2>{{ country.name }}</h2>
         <div>
             <p>Native name: <span>{{ country.nativeName }}</span></p>
-            <p>Population: <span>{{ country.population }}</span></p>
+            <p>Population: <span>{{ country.population | format_number }}</span></p>
             <p>Region: <span>{{ country.region }}</span></p>
             <p>Sub Region: <span>{{ country.subregion }}</span></p>
             <p>Capital: <span>{{ country.capital }}</span></p>
         </div>
         <div>
-            <p>Top Level Domain: <span>{{ country.region }}</span></p>
-            <p>Currencies: <span>{{ country.subregion }}</span></p>
+            <p>Top Level Domain: <span>{{ country.topLevelDomain }}</span></p>
+            <p>Currencies:
+                {% for currency in country.currencies %} 
+                    <span>{{ currency.code }}</span>
+                {% endfor %}
+            </p>
             <p>
                 Langueges: 
                 {% for language in country.languages %}
@@ -30,8 +34,8 @@
         </div>
         <div>
             <h3>Border Countries:</h3>
-            {% for country in country.neightbors  %}
-                <span class="buttonLike">{{ country }} </span> 
+            {% for border in country.borders %}
+                <span>{{ border | format_border }} </span> 
             {% endfor %}
         </div>
     </section>
