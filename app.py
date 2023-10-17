@@ -1,8 +1,35 @@
-from flask import Flask
+from flask import Flask, render_template, redirect, request
+import requests, json
+from jinja2 import Environment
 
 app = Flask(__name__)
 
+# https://restcountries.com/ API
+
+def format_number(value):
+    return "{:,}".format(value)
+
+app.jinja_env.filters['format_number'] = format_number
+
 @app.route("/")
 def index():
-    # return render_template("index.html")
-    return "<h1>Hello, Flask</h1>"
+    url = "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
+    response = requests.get(url).json()
+
+    countries = []
+
+    for row in response:
+        country = {
+            "name": row['name']['common'],
+            "flags": {
+                "png": row['flags']['png'],
+            },
+            "population": row['population'],
+            "region": row['region'],
+            "capital": row['capital'][0] if row['capital'] else row['capital']
+        }
+        countries.append(country)
+
+    regions = ["africa", "america", "asia", "europe", "oceania"]
+
+    return render_template("index.html", regions=regions, countries=countries)
