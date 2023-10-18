@@ -9,7 +9,7 @@
         <a href="/"><!-- icon --> Back</a>
     </div>
     <section class="country">
-        <img href="{{ country.flags.png }}" ald="{{ country.name }} flag">
+        <img src="{{ country.flags.png }}" alt="{{ country.name }} flag">
         <h2>{{ country.name }}</h2>
         <div>
             <p>Native name: <span>{{ country.nativeName }}</span></p>
@@ -22,13 +22,14 @@
             <p>Top Level Domain: <span>{{ country.topLevelDomain }}</span></p>
             <p>Currencies:
                 {% for currency in country.currencies %} 
-                    <span>{{ currency.code }}</span>
+                    <span>{{ currency }}</span>
                 {% endfor %}
             </p>
             <p>
                 Langueges: 
                 {% for language in country.languages %}
-                    <span>{{ language.name }}, </span> <!-- change the comma with js -->
+                    <span>{{ language | format_language }} </span>
+                    <!-- {% if not country.languages.last or not country.languages.length == 1 %},{% endif %} TODO! -->
                 {% endfor %}
             </p>
         </div>
