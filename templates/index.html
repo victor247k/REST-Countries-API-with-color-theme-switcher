@@ -24,9 +24,9 @@
             <article class="gridItem">
                 <a href="/country/{{ country.name }}"><img src="{{ country.flags.png }}" alt="{{ country.name }} flag"></a>
                 <h2>{{ country.name }}</h2>
-                <p>Population: <span>{{ country.population | format_number }}</span></p>
-                <p>Region: <span>{{ country.region }}</span></p>
-                <p>Capital: <span>{{ country.capital }}</span></p>
+                <p class="population">Population: <span>{{ country.population | format_number }}</span></p>
+                <p class="region">Region: <span>{{ country.region }}</span></p>
+                <p class="capital">Capital: <span>{{ country.capital }}</span></p>
             </article>
         {% endfor %}
     </section>
