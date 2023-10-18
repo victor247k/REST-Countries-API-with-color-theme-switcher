@@ -27,9 +27,11 @@
             </p>
             <p>
                 Langueges: 
+                {% set language_list = [] %}
                 {% for language in country.languages %}
-                    <span>{{ language | format_language }} </span>
-                    <!-- {% if not country.languages.last or not country.languages.length == 1 %},{% endif %} TODO! -->
+                    {% if not loop.first %},{% endif %}
+                    <span>{{ language }}</span>
+                    {% set _ = language_list.append(language) %} <!-- TODO! remove the colon -->
                 {% endfor %}
             </p>
         </div>

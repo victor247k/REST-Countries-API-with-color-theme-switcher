@@ -15,7 +15,7 @@
             <!-- button which activates a dropdown for more buttons with links to what is displayed -->
             <option value=""><span>Filter by Region</span> <!-- icon --></button></option>
             {% for region in regions %}
-                <option value="{{ region }}"><a href="/{{ region }}" class="dropdownLink">{{ region }}</a></option>
+                <option value="{{ region }}">{{ region }}</option>
             {% endfor %}
         </select>
     </div>
