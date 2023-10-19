@@ -6,7 +6,7 @@
 
 {% block main %}
     <div class="row">
-        <a href="/"><!-- icon --> Back</a>
+        <a href="/"><i class="fa-solid fa-arrow-left"></i> Back</a>
     </div>
     <section class="country">
         <img src="{{ country.flags.png }}" alt="{{ country.name }} flag">
@@ -31,7 +31,7 @@
                 {% for language in country.languages %}
                     {% if not loop.first %},{% endif %}
                     <span>{{ language }}</span>
-                    {% set _ = language_list.append(language) %} <!-- TODO! remove the colon -->
+                    {% set _ = language_list.append(language) %} 
                 {% endfor %}
             </p>
         </div>

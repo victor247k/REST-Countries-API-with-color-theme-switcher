@@ -10,7 +10,7 @@ class Country {
     }
 
     name() {
-        const name = this.element.querySelector(".name").innerText;
+        const name = this.element.querySelector(".countryName").innerText;
         return name;
     }
 }
