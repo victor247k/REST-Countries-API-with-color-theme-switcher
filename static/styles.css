@@ -23,8 +23,36 @@
 }
 
 
-/* styling */
+/* # styling */
+/* ## Default styles */
+
 body {
     min-height: 100vh;
     font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--clr-l-bg);
+    color: var(--clr-l-txt);
+}
+
+
+
+/* ### Layout */
+
+/* ### Responsiveness */
+
+/* ## Color */
+
+
+/* Style changes to use in dark mode */
+@media (prefers-color-scheme: dark) {
+  html {
+    /* White text on a black background */
+    color: white;
+    background: black;
+  }
+}@media (prefers-color-scheme: dark) {
+  /* These styles will be applied only in dark mode */
+}
+
+@media (prefers-color-scheme: light) {
+  /* These styles will be applied only in light mode */
 }
