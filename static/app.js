@@ -8,6 +8,11 @@ class Country {
         const region = text.querySelector("#region").innerText;
         return region;
     }
+
+    name() {
+        const name = this.element.querySelector(".name").innerText;
+        return name;
+    }
 }
 
 window.onload = () => {
@@ -15,14 +20,27 @@ window.onload = () => {
     const articles = document.querySelectorAll(".gridItem");
     const selectElement = document.querySelector("#dropdownSelect");
 
+    const searchForm = document.querySelector("#searchForm");
+    const input = searchForm.querySelector("#search");
+    const button = searchForm.querySelector("button");
+
     const countries = Array.from(articles).map((e) => new Country(e));
 
 
+    // Region Filter
     selectElement.addEventListener('change', () => {
         const value = selectElement.value;
         hide_elemets(value, countries);
+    });
 
-        
+    // Search function
+    input.addEventListener('keyup', () => {
+        const value = input.value;
+        hide_elemets_search(value, countries); 
+    });
+
+    searchForm.addEventListener("click", function(event){
+        event.preventDefault();
     });
 };
 
@@ -30,6 +48,10 @@ function isLike(text, pattern) {
   // Escape special characters in the pattern and replace % with .*
   const regexPattern = new RegExp('^' + pattern.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1').replace(/%/g, '.*') + '$');
   return regexPattern.test(text);
+};
+
+function isSimilar(name, value) {
+    return name.toLowerCase().includes(value.toLowerCase());
 };
 
 function hide_elemets(value, countries) {
@@ -92,3 +114,13 @@ function hide_elemets(value, countries) {
     };
 };
 
+function hide_elemets_search (value, countries){
+    countries.forEach(obj => {
+        if (isSimilar(obj.name(), value)) {
+            obj.element.classList.remove("display-none");
+        }
+        else {
+            obj.element.classList.add("display-none");
+        }
+    });
+};

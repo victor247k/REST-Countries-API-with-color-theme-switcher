@@ -6,7 +6,7 @@
 
 {% block main %}
     <div class="row">
-        <form action="/search">
+        <form id="searchForm">
             <button type="submit"><!-- icon --></button> 
             <input id="search" name="country" type="text" autocomplete="off" placeholder="Search for a country...">
         </form>
@@ -23,7 +23,7 @@
         {% for country in countries %}
             <article class="gridItem">
                 <a href="/country/{{ country.name }}"><img src="{{ country.flags.png }}" alt="{{ country.name }} flag"></a>
-                <h2>{{ country.name }}</h2>
+                <h2 class="name">{{ country.name }}</h2>
                 <p class="population">Population: <span>{{ country.population | format_number }}</span></p>
                 <p class="region">Region: <span id="region">{{ country.region }}</span></p>
                 <p class="capital">Capital: <span>{{ country.capital }}</span></p>
