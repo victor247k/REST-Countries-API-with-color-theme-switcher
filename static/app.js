@@ -4,7 +4,9 @@ class Country {
     }
 
     region() {
-        return this.element.querySelector(".region").value;
+        const text = this.element.querySelector(".region");
+        const region = text.querySelector("#region").innerText;
+        return region;
     }
 }
 
@@ -34,24 +36,54 @@ function hide_elemets(value, countries) {
     switch (value) {
         case "africa":
             countries.forEach(obj => {
-                if (isLike(obj.region(), "%africa%")) {
-                    obj.element.classList.add("display-none");
+                if (isLike(obj.region(), "Africa%")) {
+                    obj.element.classList.remove("display-none");
                 }
                 else {
-                    obj.element.classList.remove("display-none");
+                    obj.element.classList.add("display-none");
                 }
             });
             break;
         case "asia":
-            
+            countries.forEach(obj => {
+                if (isLike(obj.region(), "Asia%")) {
+                    obj.element.classList.remove("display-none");
+                }
+                else {
+                    obj.element.classList.add("display-none");
+                }
+            });
             break;
         case "america":
-            
+            countries.forEach(obj => {
+                if (isLike(obj.region(), "America%")) {
+                    obj.element.classList.remove("display-none");
+                }
+                else {
+                    obj.element.classList.add("display-none");
+                }
+            });
             break;
         case "europe":
+            countries.forEach(obj => {
+                if (isLike(obj.region(), "Europe%")) {
+                    obj.element.classList.remove("display-none");
+                }
+                else {
+                    obj.element.classList.add("display-none");
+                }
+            });
             
             break;
         case "oceania":
+            countries.forEach(obj => {
+                if (isLike(obj.region(), "Oceania%")) {
+                    obj.element.classList.remove("display-none");
+                }
+                else {
+                    obj.element.classList.add("display-none");
+                }
+            });
             
             break;
         default:
