@@ -37,11 +37,11 @@
 body {
   min-height: 100vh;
   font-family: 'Nunito Sans', sans-serif;
-  background: var(--clr-l-inp);
   color: var(--clr-l-txt);
   font-weight: 600;
   line-height: 1.5;
   overflow-x: hidden;
+  background: hsl(0, 0%, 95%) !important;
 }
 
 header {
@@ -207,16 +207,6 @@ header a {
 
 
 /* Style changes to use in dark mode */
-@media (prefers-color-scheme: dark) {
-  html {
-    /* White text on a black background */
-    color: white;
-    background: black;
-  }
-}@media (prefers-color-scheme: dark) {
-  /* These styles will be applied only in dark mode */
-}
+/* @media (prefers-color-scheme: dark) {
 
-@media (prefers-color-scheme: light) {
-  /* These styles will be applied only in light mode */
-}
+} */
