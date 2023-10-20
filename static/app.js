@@ -23,7 +23,6 @@ window.onload = () => {
 
     const searchForm = document.querySelector("#searchForm");
     const input = searchForm.querySelector("#search");
-    const button = searchForm.querySelector("button");
 
     const countries = Array.from(articles).map((e) => new Country(e));
 

@@ -6,12 +6,16 @@
 
 {% block main %}
     <div class="row">
-        <form id="searchForm" class="mb-3">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> 
-            <input id="search" name="country" type="text" autocomplete="off" placeholder="Search for a country...">
-        </form>
 
-        <div class="form-floating mb-3">
+        <div id="searchForm" class="input-group mb-3">
+            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span> 
+            <div class="form-floating">
+                <input placeholder="Search for a country..." id="search" name="country" class="form-control" type="text" autocomplete="off">
+                <label for="search">Search for a country...</label>
+            </div>
+        </div>
+
+        <div class="form-floating mb-3" id="select">
             <select class="form-select" aria-label="Select for the region" name="region" id="dropdownSelect">
                 <option value="" selected>Select a Region</option>
                 {% for region in regions %}
