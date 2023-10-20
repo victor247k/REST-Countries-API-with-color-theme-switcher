@@ -181,6 +181,22 @@ header a {
       flex-direction: row;
       justify-content: space-between;
     }
+    .flexbox {
+      display: flex;
+      align-items: center;
+      grid-column: 1 / -1;
+      text-align: start;
+      margin: 0;
+      padding: 0;
+    }
+    .country {
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .country img {
+      grid-row: 0 / -1;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -211,11 +227,46 @@ header a {
   text-align: center;
   padding: .2rem 1rem;
   margin: 1rem 2rem;
-  border-radius: 5px;
+  border-radius: 2px;
+  transition: 150ms;
+}
+
+.buttonLike {
+  color: var(--clr-l-txt);
+  background-color: var(--clr-white);
+  box-shadow: 0 0 5px var(--clr-l-inp);
+  text-align: center;
+  padding: .2rem 1rem;
+  border-radius: 2px;
+  padding: .2rem 1.5rem;
+  line-height: 2;
+  margin-left: 1rem;
+}
+
+.row a:hover {
+  color: var(--clr-l-txt);
+  text-shadow: 0 0 1px var(--clr-l-inp);
 }
 
 .row a i {
   margin-right: .2rem;
+}
+
+.country {
+  margin: 0 auto;
+  display: grid;
+  max-width: 1000px;
+  place-items: center;
+
+}
+.country .text {
+  /* justify-self: first baseline; */
+  width: 375px;
+}
+
+h3 {
+  font-size: 1.2rem !important;
+  white-space: nowrap;
 }
 /* ## Color */
 

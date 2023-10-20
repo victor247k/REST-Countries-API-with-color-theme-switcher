@@ -1,17 +1,21 @@
 {% extends "layout.html" %}
 
+{% block links %}
+    <link rel="stylesheet" href="/static/country.css">
+{% endblock %}
+
 {% block title %}
     {{ country.name }}
 {% endblock %}
 
 {% block main %}
     <div class="row">
-        <a href="/"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        <a href="/" class="buttonLike"><i class="fa-solid fa-arrow-left"></i> Back</a>
     </div>
     <section class="country">
         <img src="{{ country.flags.png }}" alt="{{ country.name }} flag">
-        <h2>{{ country.name }}</h2>
         <div class="text">
+            <h2>{{ country.name }}</h2>
             <p>Native name: <span>{{ country.nativeName }}</span></p>
             <p>Population: <span>{{ country.population | format_number }}</span></p>
             <p>Region: <span>{{ country.region }}</span></p>
@@ -35,10 +39,10 @@
                 {% endfor %}
             </p>
         </div>
-        <div class="text">
+        <div class="text flexbox">
             <h3>Border Countries:</h3>
             {% for border in country.borders %}
-                <span>{{ border }} </span> 
+                <span class="buttonLike">{{ border }} </span> 
             {% endfor %}
         </div>
     </section>
