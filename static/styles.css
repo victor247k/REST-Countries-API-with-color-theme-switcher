@@ -26,6 +26,11 @@
 /* # styling */
 /* ## Default styles */
 
+html {
+  color-scheme: light dark;
+}
+
+
 *, 
 *::after,
 *::before {
@@ -41,7 +46,7 @@ body {
   font-weight: 600;
   line-height: 1.5;
   overflow-x: hidden;
-  background: hsl(0, 0%, 95%) !important;
+  background: hsl(0, 0%, 95%);
 }
 
 header {
@@ -177,7 +182,7 @@ header a {
       width: 450px;
     }
     .row {
-      display: flex;
+      display: flex !important;
       flex-direction: row;
       justify-content: space-between;
     }
@@ -272,6 +277,100 @@ h3 {
 
 
 /* Style changes to use in dark mode */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
+  body {
+    background: hsl(0, 0%, 95%);
+  }
 
-} */
+  header {
+    background-color: var(--clr-white);
+  }
+
+  header button {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+    main {
+    background: hsl(0, 0%, 95%);
+  }
+
+  section {
+    background: hsl(0, 0%, 95%);
+  }
+
+  article {
+    background-color: var(--clr-l-bg);
+    color: var(--clr-l-txt);
+  }
+  header a {
+    color: var(--clr-l-txt);
+  }
+  .row a {
+    color: var(--clr-l-inp);
+    background-color: var(--clr-white);
+    box-shadow: 0 0 5px var(--clr-l-inp);
+  }
+  .buttonLike {
+    color: var(--clr-l-txt);
+    background-color: var(--clr-white);
+    box-shadow: 0 0 5px var(--clr-l-inp);
+  }
+
+  .row a:hover {
+    color: var(--clr-l-txt);
+    text-shadow: 0 0 1px var(--clr-l-inp);
+  }
+}
+/* 
+--clr-d-el: hsl(209, 23%, 22%);
+    --clr-d-bg: hsl(207, 26%, 17%);
+*/
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--clr-d-bg) !important;
+  }
+
+  header {
+    background-color: var(--clr-d-el);
+  }
+
+  header button {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  main {
+    background: var(--clr-d-bg);
+  }
+
+  section {
+    background: var(--clr-d-bg);
+  }
+
+  article {
+    color: var(--clr-white);
+    background-color: var(--clr-d-el);
+  }
+  header a {
+    color: var(--clr-white);
+  }
+  .row a {
+    color: var(--clr-white);
+    background-color: var(--clr-d-el);
+    box-shadow: 0 0 5px var(--clr-white);
+  }
+  .buttonLike {
+    color: var(--clr-white);
+    background-color: var(--clr-d-el);
+    box-shadow: 0 0 5px var(--clr-d-el);
+  }
+
+  .row a:hover {
+    color: var(--clr-white);
+    text-shadow: 0 0 1px var(--clr-d-el);
+  }
+
+  .country {
+    color: var(--clr-white);
+    background-color: var(--clr-d-bg);
+  }
+}
