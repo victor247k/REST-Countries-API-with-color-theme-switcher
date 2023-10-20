@@ -22,10 +22,14 @@
         {% for country in countries %}
             <article class="gridItem">
                 <a href="/country/{{ country.name }}"><img src="{{ country.flags.png }}" alt="{{ country.name }} flag"></a>
-                <h2 class="countryName">{{ country.name }}</h2>
-                <p class="population">Population: <span>{{ country.population | format_number }}</span></p>
-                <p class="region">Region: <span id="region">{{ country.region }}</span></p>
-                <p class="capital">Capital: <span>{{ country.capital }}</span></p>
+                <div class="text">
+                    <h2 class="countryName">{{ country.name }}</h2>
+                    <div>
+                        <p class="population">Population: <span>{{ country.population | format_number }}</span></p>
+                        <p class="region">Region: <span id="region">{{ country.region }}</span></p>
+                        <p class="capital">Capital: <span>{{ country.capital }}</span></p>
+                    </div>
+                </div>
             </article>
         {% endfor %}
     </section>
