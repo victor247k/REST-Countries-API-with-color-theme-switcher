@@ -118,7 +118,6 @@ I've encountered a lot of problems with CSS and a bit with HTML, i dont know how
 - [Git tutorial](https://youtu.be/HkdAHXoRtos?si=-R8gLEVN65lp0TuChttps://www.example.com) - This helped me learn about git and how to initialize a repository, to add, to commit, and how to push, this guy explains stuff very well.
 - [The Done Manifesto](https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13) - The best rules for productivity.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
