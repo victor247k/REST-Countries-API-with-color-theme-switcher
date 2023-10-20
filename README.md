@@ -1,22 +1,26 @@
-# Frontend Mentor - REST Countries API with color theme switcher
+# Frontend Mentor - REST Countries API with color theme switcher solution
 
-![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a good understanding of HTML, CSS, and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to integrate with the [REST Countries API](https://restcountries.com) to pull country data and display it like in the designs.
-
-You can use any JavaScript framework/library on the front-end such as [React](https://reactjs.org) or [Vue](https://vuejs.org). You also have complete control over which packages you use to do things like make HTTP requests or style your project.
-
-Your users should be able to:
+Users should be able to:
 
 - See all countries from the API on the homepage
 - Search for a country using an `input` field
@@ -25,76 +29,102 @@ Your users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode *(optional)*
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-**⚠️ NOTE ⚠️: Sometimes the REST Countries API can go down. We've added a `data.json` file with all the country data if you prefer to use that instead. However, please be aware that the data in the JSON file might not be up-to-date.**
+![](./screenshot.png)
 
-## Where to find everything
+### Links
 
-Your task is to build out the project to the designs inside the `/design` folder. 
+- Solution URL: [GitHub](https://github.com/victor247k/REST-Countries-API-with-color-theme-switcher)
+- Live Site URL: [Local host](http://127.0.0.1/)
 
-In this challenge, you will find mobile and desktop designs in light and dark mode color schemes for both pages.
+## My process
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+### Built with
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- Python
+- [RESTful API](https://restcountries.com/) - RestCountries API
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/https://reactjs.org/) - Python Web Framework
+- [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/https://nextjs.org/) - templating engine
+- [Bootsrap](https://getbootstrap.com/https://styled-components.com/) - For styles
+- [Font Awsome](https://fontawesome.com/) - For icons
+- [Google Fonts](https://fonts.google.com/) - For fonts
+- [ChatGPT](https://chat.openai.com/) - For help
 
-There are no assets for this challenge, as the country flags will be pulled from the [REST Countries API](https://restcountries.com) and you can use an icon font library for the icons.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### What I learned
 
-## Building your project
+I mostly did this to practice using python and flask and git, but actually got some experience with javascript as well and css, oh ofcoarse you cant ignore the elephant in the room - the RESTful API, i had a lot of fun trying to implement this, and using jinja was a big help for itereting through all of those html elements, but now that i think about it, i could've used js for everything, but like i've said i wanted to practice using python and flask. 
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+```html
+<p>
+  Langueges: 
+  {% set language_list = [] %}
+  {% for language in country.languages %}
+      {% if not loop.first %},{% endif %}
+      <span>{{ language }}</span>
+      {% set _ = language_list.append(language) %} 
+  {% endfor %}
+</p>
+```
+```css
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--clr-d-bg) !important;
+  }
+}
+```
+```js
+class Country {
+    constructor (element) {
+        this.element = element;
+    }
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+    region() {
+        const box = this.element.querySelector(".text");
+        const div = box.querySelector("div");
+        const region = div.querySelector("#region").innerText;
+        return region;
+    }
 
-## Deploying your project
+    name() {
+        const name = this.element.querySelector(".text");
+        return name.querySelector(".countryName").innerText;
+    }
+}
+```
+``` py
+app = Flask(__name__)
+app.jinja_env.filters['format_number'] = format_number
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+url = "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
+response = requests.get(url).json()
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### Continued development
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
-## Create a custom `README.md`
+I've encountered a lot of problems with CSS and a bit with HTML, i dont know how to structure elements better and how to style them, it's a mess, i think i should just learn to use bootstrap, and for the future i want to use React for front end so i hope that with that i will improve my structure of my html. Oh and i want to learn about UI/UX and designing fundamentals, how to make cool animations and stuff like this.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+### Useful resources
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/https://reactjs.org/) - This is a lite weight python framework that really helped me and its documentation is very good.
+- [Git tutorial](https://youtu.be/HkdAHXoRtos?si=-R8gLEVN65lp0TuChttps://www.example.com) - This helped me learn about git and how to initialize a repository, to add, to commit, and how to push, this guy explains stuff very well.
+- [The Done Manifesto](https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13) - The best rules for productivity.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
-## Submitting your solution
+## Author
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+- Bio Link - [victor](https://dose.lol/victor)
+- Frontend Mentor - [@victor247k](https://www.frontendmentor.io/profile/victor247k)
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+## Acknowledgments
 
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+I am thankful for this challange, it was quite difficult and it made me realize that I should learn more about design and how to style. Also I am grateful for the Done Manifesto which served as the main motivation of not procrastinating on doing this.
