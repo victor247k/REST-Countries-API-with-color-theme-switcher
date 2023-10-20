@@ -4,14 +4,15 @@ class Country {
     }
 
     region() {
-        const text = this.element.querySelector(".region");
-        const region = text.querySelector("#region").innerText;
+        const box = this.element.querySelector(".text");
+        const div = box.querySelector("div");
+        const region = div.querySelector("#region").innerText;
         return region;
     }
 
     name() {
-        const name = this.element.querySelector(".countryName").innerText;
-        return name;
+        const name = this.element.querySelector(".text");
+        return name.querySelector(".countryName").innerText;
     }
 }
 

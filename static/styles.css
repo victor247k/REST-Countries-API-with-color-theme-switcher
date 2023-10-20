@@ -141,6 +141,14 @@ header a {
   gap: 2rem;
 }
 
+#dropdownSelect {
+  width: 200px;
+  text-transform: capitalize;
+  font-weight: 600;
+  
+}
+
+
 /* ### Responsiveness */
 
 @media screen and (min-width: 768px) {

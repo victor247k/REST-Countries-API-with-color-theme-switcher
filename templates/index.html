@@ -6,17 +6,20 @@
 
 {% block main %}
     <div class="row">
-        <form id="searchForm">
+        <form id="searchForm" class="mb-3">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> 
             <input id="search" name="country" type="text" autocomplete="off" placeholder="Search for a country...">
         </form>
 
-        <select name="region" id="dropdownSelect">
-            <option value=""><span>Filter by Region</span><i class="fa-solid fa-angle-down"></i></button></option>
-            {% for region in regions %}
-                <option value="{{ region }}">{{ region }}</option>
-            {% endfor %}
-        </select>
+        <div class="form-floating mb-3">
+            <select class="form-select" aria-label="Select for the region" name="region" id="dropdownSelect">
+                <option value="" selected>Select a Region</option>
+                {% for region in regions %}
+                    <option value="{{ region }}">{{ region }}</option>
+                {% endfor %}
+            </select>
+            <label for="dropdownSelect">Filter by Region</label>
+        </div>
     </div>
     <section class="sectionGrid">
         {% for country in countries %}
@@ -33,4 +36,8 @@
             </article>
         {% endfor %}
     </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/app.js"></script>
 {% endblock %}
