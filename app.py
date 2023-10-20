@@ -1,13 +1,12 @@
 from flask import Flask, render_template, redirect, request
 import requests, json, pprint
 from jinja2 import Environment
-from helpers import format_border, format_number, get_language, get_native_name, get_borders
+from helpers import format_number, get_language, get_native_name, get_borders
 
 app = Flask(__name__)
 
 # https://restcountries.com/ API
 
-app.jinja_env.filters['format_border'] = format_border
 app.jinja_env.filters['format_number'] = format_number
 
 @app.route("/")

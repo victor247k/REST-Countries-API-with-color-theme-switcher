@@ -11,14 +11,14 @@
     <section class="country">
         <img src="{{ country.flags.png }}" alt="{{ country.name }} flag">
         <h2>{{ country.name }}</h2>
-        <div>
+        <div class="text">
             <p>Native name: <span>{{ country.nativeName }}</span></p>
             <p>Population: <span>{{ country.population | format_number }}</span></p>
             <p>Region: <span>{{ country.region }}</span></p>
             <p>Sub Region: <span>{{ country.subregion }}</span></p>
             <p>Capital: <span>{{ country.capital }}</span></p>
         </div>
-        <div>
+        <div class="text">
             <p>Top Level Domain: <span>{{ country.topLevelDomain }}</span></p>
             <p>Currencies:
                 {% for currency in country.currencies %} 
@@ -35,10 +35,10 @@
                 {% endfor %}
             </p>
         </div>
-        <div>
+        <div class="text">
             <h3>Border Countries:</h3>
             {% for border in country.borders %}
-                <span>{{ border | format_border }} </span> 
+                <span>{{ border }} </span> 
             {% endfor %}
         </div>
     </section>

@@ -202,7 +202,21 @@ header a {
     }
 }
 
+.row a {
+  color: var(--clr-l-inp);
+  text-decoration: none;
+  background-color: var(--clr-white);
+  box-shadow: 0 0 5px var(--clr-l-inp);
+  width: 100px;
+  text-align: center;
+  padding: .2rem 1rem;
+  margin: 1rem 2rem;
+  border-radius: 5px;
+}
 
+.row a i {
+  margin-right: .2rem;
+}
 /* ## Color */
 
 
